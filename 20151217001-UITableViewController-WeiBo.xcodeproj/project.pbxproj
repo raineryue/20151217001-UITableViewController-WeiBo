@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D50E46391C2309A100F0BC21 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D50E46381C2309A100F0BC21 /* NSArray+Log.m */; };
 		D5A916B81C229A5C007D7795 /* StatuseFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A916B71C229A5C007D7795 /* StatuseFrameModel.m */; };
 		D5AE242E1C225B7A002E8F58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5AE242D1C225B7A002E8F58 /* Assets.xcassets */; };
 		D5AE24311C225B7A002E8F58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5AE242F1C225B7A002E8F58 /* LaunchScreen.storyboard */; };
@@ -26,7 +27,6 @@
 		D5AE247E1C225F1B002E8F58 /* 424324.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D5AE24701C225F1B002E8F58 /* 424324.jpeg */; };
 		D5AE247F1C225F1B002E8F58 /* 50.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D5AE24711C225F1B002E8F58 /* 50.jpeg */; };
 		D5AE24801C225F1B002E8F58 /* 7735164184.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D5AE24721C225F1B002E8F58 /* 7735164184.jpeg */; };
-		D5AE24811C225F1B002E8F58 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5AE24741C225F1B002E8F58 /* Info.plist */; };
 		D5AE24841C225FF5002E8F58 /* Statuses.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5AE24831C225FF5002E8F58 /* Statuses.plist */; };
 		D5AE248A1C227D76002E8F58 /* StatuseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE24891C227D76002E8F58 /* StatuseModel.m */; };
 		D5AE248D1C228714002E8F58 /* StatuseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AE248C1C228714002E8F58 /* StatuseTableViewCell.m */; };
@@ -50,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D50E46371C2309A100F0BC21 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		D50E46381C2309A100F0BC21 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		D5A916B61C229A5C007D7795 /* StatuseFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatuseFrameModel.h; sourceTree = "<group>"; };
 		D5A916B71C229A5C007D7795 /* StatuseFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatuseFrameModel.m; sourceTree = "<group>"; };
 		D5A916BA1C229C28007D7795 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -111,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D50E46361C2309A100F0BC21 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D50E46371C2309A100F0BC21 /* NSArray+Log.h */,
+				D50E46381C2309A100F0BC21 /* NSArray+Log.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D5A916B91C229C11007D7795 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				D5AE24551C225D09002E8F58 /* Controllers */,
-				D5AE24581C225D09002E8F58 /* Models */,
-				D5AE24591C225D09002E8F58 /* Others */,
 				D5AE245E1C225D09002E8F58 /* Views */,
+				D5AE24581C225D09002E8F58 /* Models */,
+				D50E46361C2309A100F0BC21 /* Utils */,
+				D5AE24591C225D09002E8F58 /* Others */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -341,7 +353,7 @@
 		D5AE24161C225B78002E8F58 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Rainer;
 				TargetAttributes = {
 					D5AE241D1C225B79002E8F58 = {
@@ -391,7 +403,6 @@
 				D5AE247C1C225F1B002E8F58 /* 1516159990.jpeg in Resources */,
 				D5AE242E1C225B7A002E8F58 /* Assets.xcassets in Resources */,
 				D5AE247E1C225F1B002E8F58 /* 424324.jpeg in Resources */,
-				D5AE24811C225F1B002E8F58 /* Info.plist in Resources */,
 				D5AE247B1C225F1B002E8F58 /* 1.jpeg in Resources */,
 				D5AE24781C225F1B002E8F58 /* 603564546.jpeg in Resources */,
 				D5AE24771C225F1B002E8F58 /* 4934348604.jpeg in Resources */,
@@ -422,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5AE24601C225D09002E8F58 /* AppDelegate.m in Sources */,
+				D50E46391C2309A100F0BC21 /* NSArray+Log.m in Sources */,
 				D5AE248D1C228714002E8F58 /* StatuseTableViewCell.m in Sources */,
 				D5AE248A1C227D76002E8F58 /* StatuseModel.m in Sources */,
 				D5AE24631C225D74002E8F58 /* main.m in Sources */,
@@ -557,7 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/Rainer/Documents/GitHubSpace/iOSSpaces/20151217001-UITableViewController-WeiBo/20151217001-UITableViewController-WeiBo/Resuroces/Constants/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "20151217001-UITableViewController-WeiBo/Resuroces/Constants/PrefixHeader.pch";
 				INFOPLIST_FILE = "20151217001-UITableViewController-WeiBo/Resuroces/PlistFile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rainer.-0151217001-UITableViewController-WeiBo";
@@ -569,7 +581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/Rainer/Documents/GitHubSpace/iOSSpaces/20151217001-UITableViewController-WeiBo/20151217001-UITableViewController-WeiBo/Resuroces/Constants/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "20151217001-UITableViewController-WeiBo/Resuroces/Constants/PrefixHeader.pch";
 				INFOPLIST_FILE = "20151217001-UITableViewController-WeiBo/Resuroces/PlistFile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rainer.-0151217001-UITableViewController-WeiBo";

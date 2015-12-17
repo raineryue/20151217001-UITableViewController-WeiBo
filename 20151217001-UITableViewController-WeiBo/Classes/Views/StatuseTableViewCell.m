@@ -8,6 +8,7 @@
 
 #import "StatuseTableViewCell.h"
 #import "StatuseFrameModel.h"
+#import "StatuseModel.h"
 
 @interface StatuseTableViewCell ()
 
@@ -102,6 +103,8 @@
  *  布局控件的位置大小
  */
 - (void)subviewsLayoutWithStatuseFrame:(StatuseFrameModel *)statuseFrame {
+    NSLog(@"%@", statuseFrame);
+    
     // 头像
     self.iconImageView.frame = statuseFrame.iconFrame;
     
@@ -113,6 +116,8 @@
  *  布局控件的位置大小
  */
 - (void)subviewsDataWithStatuse:(StatuseModel *)statuse {
+    NSLog(@"%@", statuse);
+    
     // 头像
     self.iconImageView.image = [UIImage imageNamed:statuse.icon];
     

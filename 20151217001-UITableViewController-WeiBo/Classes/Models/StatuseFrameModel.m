@@ -7,6 +7,7 @@
 //
 
 #import "StatuseFrameModel.h"
+#import "StatuseModel.h"
 
 @implementation StatuseFrameModel
 
@@ -14,6 +15,8 @@
  *  复写微博信息的setter方法，设置控件的位置
  */
 - (void)setStatuse:(StatuseModel *)statuse {
+    _statuse = statuse;
+    
     // 用户头像位置大小
     CGFloat iconX = kTableViewCellContentMargin;
     CGFloat iconY = kTableViewCellContentMargin;
@@ -56,6 +59,13 @@
     CGFloat pictureH = kUserIconWH;
     
     self.pictureFrame = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+}
+
+/**
+ *  类描述方法
+ */
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@:%p>:{textFrame: %@, iconFrame: %@, pictureFrame: %@, nameFrame: %@, vipFrame: %@, statuse: %@}", self.class, self, NSStringFromCGRect(self.textFrame), NSStringFromCGRect(self.iconFrame), NSStringFromCGRect(self.pictureFrame), NSStringFromCGRect(self.nameFrame), NSStringFromCGRect(self.vipFrame), self.statuse];
 }
 
 @end

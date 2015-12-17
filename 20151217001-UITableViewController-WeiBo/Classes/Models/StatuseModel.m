@@ -49,4 +49,11 @@
     return [[StatuseModel alloc] statuseArray];
 }
 
+/**
+ *  类描述方法
+ */
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@:%p>:{text: %@, icon: %@, picture: %@, name: %@, vip: %d}", self.class, self, self.text, self.icon, self.picture, self.name, self.vip];
+}
+
 @end

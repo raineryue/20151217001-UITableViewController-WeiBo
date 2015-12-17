@@ -7,7 +7,7 @@
 //
 
 
-#import "StatuseModel.h"
+@class StatuseModel;
 
 @interface StatuseFrameModel : NSObject
 

@@ -39,7 +39,7 @@
         [statuseArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             StatuseFrameModel *statuseFrame = [[StatuseFrameModel alloc] init];
             
-            statuseFrame.statuse = obj;
+            statuseFrame.statuse = (StatuseModel *)obj;
             
             [_statuseFrameArray addObject:statuseFrame];
         }];
@@ -61,6 +61,8 @@
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StatuseTableViewCell *statuseTableViewCell = [StatuseTableViewCell statuseTableViewCellWithTableView:tableView];
+    
+    NSLog(@"%@", self.statuseFrameArray);
     
     statuseTableViewCell.statuseFrame = self.statuseFrameArray[indexPath.row];
     
