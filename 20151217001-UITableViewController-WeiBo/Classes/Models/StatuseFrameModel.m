@@ -26,39 +26,43 @@
     self.iconFrame = CGRectMake(iconX, iconY, iconW, iconH);
     
     // 用户名称位置大小
-    CGFloat nameX = CGRectGetMaxX(self.iconFrame) + kTableViewCellContentMargin;
-    CGFloat nameY = kTableViewCellContentMargin;
+    CGRect nameFrame = [statuse.name boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kUserNameFontSize} context:nil];
     
-    CGSize nameSize = [statuse.name sizeWithAttributes:@{@"NSFontAttributeName":[UIFont systemFontOfSize:kUserNameFontSize]}];
+    nameFrame.origin.x = CGRectGetMaxX(self.iconFrame) + kTableViewCellContentMargin;
+    nameFrame.origin.y = (iconH - nameFrame.size.height) * 0.5 + kTableViewCellContentMargin;
     
-    CGFloat nameW = nameSize.width;
-    CGFloat nameH = nameSize.height;
-    
-    self.nameFrame = CGRectMake(nameX, nameY, nameW, nameH);
+    self.nameFrame = nameFrame;
     
     // 会员位置大小
-    CGFloat vipX = kTableViewCellContentMargin;
-    CGFloat vipY = kTableViewCellContentMargin;
-    CGFloat vipW = kUserIconWH;
-    CGFloat vipH = kUserIconWH;
+    CGFloat vipX = CGRectGetMaxX(self.nameFrame) + kTableViewCellContentMargin;
+    CGFloat vipY = self.nameFrame.origin.y;
+    CGFloat vipW = 14;
+    CGFloat vipH = 14;
     
     self.vipFrame = CGRectMake(vipX, vipY, vipW, vipH);
     
     // 正文位置大小
-    CGFloat textX = kTableViewCellContentMargin;
-    CGFloat textY = kTableViewCellContentMargin;
-    CGFloat textW = kUserIconWH;
-    CGFloat textH = kUserIconWH;
+    // 这里用来算文字在固定宽度下的大小
+    CGRect textFrame = [statuse.text boundingRectWithSize:CGSizeMake((kScreenWidth - kTableViewCellContentMargin * 2), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kTextFontSize} context:nil];
     
-    self.textFrame = CGRectMake(textX, textY, textW, textH);
+    textFrame.origin.x = kTableViewCellContentMargin;
+    textFrame.origin.y = CGRectGetMaxY(self.iconFrame) + kTableViewCellContentMargin;
+
+    self.textFrame = textFrame;
     
     // 配图位置大小
     CGFloat pictureX = kTableViewCellContentMargin;
-    CGFloat pictureY = kTableViewCellContentMargin;
-    CGFloat pictureW = kUserIconWH;
-    CGFloat pictureH = kUserIconWH;
+    CGFloat pictureY = CGRectGetMaxY(self.textFrame) + kTableViewCellContentMargin;
+    CGFloat pictureW = 100;
+    CGFloat pictureH = 100;
     
     self.pictureFrame = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+    
+    // 单元格高
+    if (statuse.picture.length > 0)
+        self.rowHeight = CGRectGetMaxY(self.pictureFrame) + kTableViewCellContentMargin;
+    else
+        self.rowHeight = CGRectGetMaxY(self.textFrame) + kTableViewCellContentMargin;
 }
 
 /**

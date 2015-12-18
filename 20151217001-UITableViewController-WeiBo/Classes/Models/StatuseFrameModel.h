@@ -22,6 +22,9 @@
 /** 是否会员 */
 @property (nonatomic, assign) CGRect vipFrame;
 
+/** 单元格高 */
+@property (nonatomic, assign) CGFloat rowHeight;
+
 /** 微博信息 */
 @property (nonatomic, strong) StatuseModel *statuse;
 

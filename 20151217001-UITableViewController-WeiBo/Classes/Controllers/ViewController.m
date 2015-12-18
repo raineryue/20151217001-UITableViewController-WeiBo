@@ -69,6 +69,16 @@
     return statuseTableViewCell;
 }
 
+#pragma mark - TableView代理方法
+/**
+ *  返回单元格的高度
+ */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    StatuseFrameModel *statuseFrame = self.statuseFrameArray[indexPath.row];
+    
+    return statuseFrame.rowHeight;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

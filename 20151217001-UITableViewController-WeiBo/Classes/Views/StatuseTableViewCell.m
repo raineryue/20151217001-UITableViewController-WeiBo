@@ -57,13 +57,12 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         // 用户头像
         UIImageView *iconImageView = [[UIImageView alloc] init];
-        iconImageView.backgroundColor = [UIColor redColor];
         self.iconImageView = iconImageView;
         [self.contentView addSubview:self.iconImageView];
         
         // 用户名称
         UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.backgroundColor = [UIColor grayColor];
+        nameLabel.font = kUserNameFontSize;
         self.nameLabel = nameLabel;
         [self.contentView addSubview:self.nameLabel];
         
@@ -74,7 +73,8 @@
         
         // 微博正文
         UILabel *statuseLabel = [[UILabel alloc] init];
-        
+        statuseLabel.font = kTextFontSize;
+        statuseLabel.numberOfLines = 0;
         self.statuseLabel = statuseLabel;
         [self.contentView addSubview:self.statuseLabel];
         
@@ -89,13 +89,17 @@
 }
 
 #pragma mark - 属性setter复写
-
+/**
+ *  复写微博单元格位置属性
+ */
 - (void)setStatuseFrame:(StatuseFrameModel *)statuseFrame {
     _statuseFrame = statuseFrame;
     
-    [self subviewsLayoutWithStatuseFrame:statuseFrame];
-    
+    // 填充控件数据
     [self subviewsDataWithStatuse:statuseFrame.statuse];
+    
+    // 布局控件位置
+    [self subviewsLayoutWithStatuseFrame:statuseFrame];
 }
 
 #pragma mark - 私有辅助方法
@@ -103,26 +107,50 @@
  *  布局控件的位置大小
  */
 - (void)subviewsLayoutWithStatuseFrame:(StatuseFrameModel *)statuseFrame {
-    NSLog(@"%@", statuseFrame);
-    
     // 头像
     self.iconImageView.frame = statuseFrame.iconFrame;
     
     // 名称
     self.nameLabel.frame = statuseFrame.nameFrame;
+    
+    // 会员
+    self.vipImageView.frame = statuseFrame.vipFrame;
+    
+    // 正文
+    self.statuseLabel.frame = statuseFrame.textFrame;
+    
+    // 配图
+    self.pictureImageView.frame = statuseFrame.pictureFrame;
 }
 
 /**
- *  布局控件的位置大小
+ *  填充控件上的数据
  */
 - (void)subviewsDataWithStatuse:(StatuseModel *)statuse {
-    NSLog(@"%@", statuse);
-    
     // 头像
     self.iconImageView.image = [UIImage imageNamed:statuse.icon];
     
     // 名称
     self.nameLabel.text = statuse.name;
+    
+    // 会员
+    self.vipImageView.image = [UIImage imageNamed:@"vip"];
+    
+    if (statuse.isVip)
+        self.vipImageView.hidden = NO;
+    else
+        self.vipImageView.hidden = YES;
+    
+    // 正文
+    self.statuseLabel.text = statuse.text;
+    
+    // 配图
+    if (statuse.picture.length > 0) {
+        self.pictureImageView.hidden = NO;
+        self.pictureImageView.image = [UIImage imageNamed:statuse.picture];
+    } else {
+        self.pictureImageView.hidden = YES;
+    }
 }
 
 @end
